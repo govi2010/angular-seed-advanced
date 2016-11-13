@@ -4,7 +4,7 @@ import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core
 // app
 import { CoreModule } from '../core/core.module';
 import { TOKENS_SHARED } from '../core/tokens';
-import { PRACTICEBUDDY_PROVIDERS } from './services/index';
+import { OBEK_PROVIDERS } from './services/index';
 
 
 /**
@@ -16,21 +16,21 @@ import { PRACTICEBUDDY_PROVIDERS } from './services/index';
     CoreModule
   ],
   providers: [
-    PRACTICEBUDDY_PROVIDERS,
+    OBEK_PROVIDERS,
     TOKENS_SHARED
   ]
 })
-export class PracticeBuddyModule {
+export class ObekModule {
   static forRoot(configuredProviders: Array<any>): ModuleWithProviders {
     return {
-      ngModule: PracticeBuddyModule,
+      ngModule: ObekModule,
       providers: configuredProviders
     };
   }
-  constructor( @Optional() @SkipSelf() parentModule: PracticeBuddyModule) {
-    console.log(`PBModule constructor`);
+  constructor( @Optional() @SkipSelf() parentModule: ObekModule) {
+    console.log(`OBek module constructor`);
     if (parentModule) {
-      throw new Error('PBModule already loaded; Import in root module only.');
+      throw new Error('OBekModule already loaded; Import in root module only.');
     }
   }
 }

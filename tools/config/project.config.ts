@@ -19,6 +19,7 @@ export class ProjectConfig extends SeedAdvancedConfig {
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
+
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
     ];
 
@@ -31,6 +32,22 @@ export class ProjectConfig extends SeedAdvancedConfig {
 
     /* Add to or override NPM module configurations: */
     // this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });
+
+    this.SYSTEM_CONFIG_DEV.paths['firebase'] =
+      `${this.APP_BASE}node_modules/firebase/firebase`;
+
+    this.SYSTEM_BUILDER_CONFIG.packages['firebase'] = {
+      main: 'firebase.js',
+      defaultExtension : 'js'
+    };
+
+    this.SYSTEM_CONFIG_DEV.paths['angularfire2'] =
+      `${this.APP_BASE}node_modules/angularfire2/bundles/angularFire2.umd.js`;
+
+    this.SYSTEM_BUILDER_CONFIG.packages['angularfire2'] = {
+      main: 'angularfire2.js',
+      defaultExtension : 'js'
+    };
   }
 
 }

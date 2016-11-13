@@ -13,7 +13,7 @@ let template: any;
 let menu: any;
 
 // app
-import { AppConfig } from './app/frameworks/sample/services/app-config';
+// import { AppConfig } from './app/frameworks/sample/services/app-config';
 
 // Sample
 // You would need a valid `submitURL` to use
@@ -57,17 +57,17 @@ app.on('ready', () => {
     label: 'Language',
     submenu: []
   };
-  for (var lang of AppConfig.SUPPORTED_LANGUAGES) {
-    let code = lang.code;
-    let langOption = {
-      label: lang.title,
-      click:() => {
-        console.log(`Change lang: ${code}`);
-        mainWindow.webContents.executeJavaScript(`window.dispatchEvent(new CustomEvent('changeLang', {detail: { value: '${code}'} }));`);
-      }
-    };
-    langMenu.submenu.push(langOption);
-  }
+  // for (var lang of AppConfig.SUPPORTED_LANGUAGES) {
+  //   let code = lang.code;
+  //   let langOption = {
+  //     label: lang.title,
+  //     click:() => {
+  //       console.log(`Change lang: ${code}`);
+  //       mainWindow.webContents.executeJavaScript(`window.dispatchEvent(new CustomEvent('changeLang', {detail: { value: '${code}'} }));`);
+  //     }
+  //   };
+  //   langMenu.submenu.push(langOption);
+  // }
 
   let helpMenu: any = {
     label: 'Help',

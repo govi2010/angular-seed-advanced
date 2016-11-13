@@ -15,6 +15,13 @@ interface IPlatforms {
 export class Config {
 
   public static PageClass: any;
+  public static token:string = "";
+  public static email:string = "";
+
+  public static invalidateToken() {
+    Config.token = "";
+    Config.email = "";
+  }
 
   public static DEBUG: any = {
     LEVEL_1: false, // .info only

@@ -20,6 +20,8 @@
       "../../node_modules"
     ],
     "types": [
+
+      "angularfire2",
       "core-js",
       "express",
       "jasmine",

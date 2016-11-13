@@ -10,24 +10,31 @@ import { Http } from '@angular/http';
 import { NgModule } from '@angular/core';
 
 // libs
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
+// import { StoreModule } from '@ngrx/store';
+// import { EffectsModule } from '@ngrx/effects';
+// import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
+//
+import {TNSFontIconModule, TNSFontIconService, TNSFontIconPipe, TNSFontIconPurePipe} from 'nativescript-ng2-fonticon';
 
 // app
 import { WindowService, ConsoleService, RouterExtensions } from './app/frameworks/core/index';
 import { NSAppComponent } from './pages/app/app.component';
-import { AboutComponent } from './app/components/about/about.component';
-import { HomeComponent } from './app/components/home/home.component';
-import { routes } from './app/components/app.routes';
+import { TOKENS_NATIVE } from './tokens.native';
+import { AppComponent, ENTRY_COMPONENTS } from './app/frameworks/obek/index';
+import { routes } from './app/frameworks/obek/routes';
+import { ObekModule } from './app/frameworks/obek/obek.module';
+import {registerElement} from "nativescript-angular/element-registry";
+registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
+
+
 
 // feature modules
 import { CoreModule } from './app/frameworks/core/core.module';
 import { AnalyticsModule } from './app/frameworks/analytics/analytics.module';
-import { MultilingualModule, translateFactory } from './app/frameworks/i18n/multilingual.module';
-import { multilingualReducer, MultilingualEffects } from './app/frameworks/i18n/index';
-import { SampleModule } from './app/frameworks/sample/sample.module';
-import { nameListReducer, NameListEffects } from './app/frameworks/sample/index';
+// import { MultilingualModule, translateFactory } from './app/frameworks/i18n/multilingual.module';
+// import { multilingualReducer, MultilingualEffects } from './app/frameworks/i18n/index';
+// import { SampleModule } from './app/frameworks/sample/sample.module';
+// import { nameListReducer, NameListEffects } from './app/frameworks/sample/index';
 
 // {N} custom app specific
 import { WindowNative } from './shared/core/index';
@@ -42,24 +49,18 @@ import { NS_ANALYTICS_PROVIDERS } from './shared/nativescript/index';
     NativeScriptFormsModule,
     NativeScriptHttpModule,
     NativeScriptRouterModule,
-    MultilingualModule.forRoot([{
-      provide: TranslateLoader,
-      deps: [Http],
-      useFactory: (translateFactory)
-    }]),
-    SampleModule
+    TNSFontIconModule.forRoot({
+      'fa': 'fonts/font-awesome.css'
+    })
   ],
   declarations: [
-    HomeComponent,
-    AboutComponent
+    ENTRY_COMPONENTS
   ],
   exports: [
     NativeScriptModule,
     NativeScriptFormsModule,
     NativeScriptHttpModule,
-    NativeScriptRouterModule,
-    MultilingualModule,
-    SampleModule
+    NativeScriptRouterModule
   ]
 })
 class ComponentsModule { }
@@ -77,13 +78,19 @@ export function cons() {
     ]),
     AnalyticsModule,
     ComponentsModule,
+    ObekModule.forRoot([
+      TOKENS_NATIVE/*,
+       {
+       provide: TNSFontIconService,
+       useFactory: () => {
+       return new TNSFontIconService({
+       'fa': 'fonts/font-awesome.css',
+       'ion': 'fonts/ionicons.css'
+       });
+       }
+       }*/
+    ]),
     NativeScriptRouterModule.forRoot(<any>routes),
-    StoreModule.provideStore({
-      i18n: multilingualReducer,
-      names: nameListReducer
-    }),
-    EffectsModule.run(MultilingualEffects),
-    EffectsModule.run(NameListEffects)
   ],
   declarations: [
     NSAppComponent

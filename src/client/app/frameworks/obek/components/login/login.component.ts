@@ -1,6 +1,7 @@
 import {OnInit, Inject, ViewChild, ElementRef, ViewEncapsulation} from '@angular/core';
 import {BaseComponent} from '../../../core/decorators/base.component';
 import {LogService} from '../../../core/services/log.service';
+import {WindowService} from '../../../core/services/window.service';
 import {DIALOGS, FRAME, PAGE, VIEW} from '../../../core/tokens';
 import {UserService} from '../../services/user.service';
 import {Observable} from 'rxjs/Observable';
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   constructor(public userService: UserService,
               private logger: LogService,
+              private win: WindowService,
               private _router: Router,
               @Inject(DIALOGS) private dialogs: any,
               @Inject(FRAME) private frame: any
@@ -57,9 +59,25 @@ export class LoginComponent implements OnInit {
 
     this.userService.login(this.user)
       .then((data) => {
+
         this.logger.debug(JSON.stringify(data));
+        if(typeof data ==="string")
+        {
+          data = JSON.parse(data);
+        }
+        this.logger.debug(typeof data);
         this.isAuthenticating = false;
-        this._router.navigate(["/home"]);
+        this.logger.debug(data.email);
+
+        this.logger.debug(data.hasOwnProperty("email"));
+        if(data.hasOwnProperty("email")){
+          this._router.navigate(["/home"]);
+        }
+        else {
+          this.win.alert("invalid data");
+        }
+
+        //this.dialogs
       })
       .catch((message:any) => {
         alert(message);

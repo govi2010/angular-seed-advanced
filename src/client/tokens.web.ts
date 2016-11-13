@@ -1,12 +1,11 @@
 import {FIREBASE, ENUMS, APPSETTINGS} from './app/frameworks/core/tokens';
-var firebase = require('firebase/app');
-require("firebase/auth");
-require("firebase/database");
+import { AngularFireModule } from 'angularfire2';
+
 
 export const TOKENS_WEB: Array<any> = [
   {
     provide: FIREBASE, useFactory: () => {
-      return firebase;
+      return AngularFireModule;
     }
   },
   { provide: ENUMS, useValue: {} },
