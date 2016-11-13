@@ -20,14 +20,13 @@
       "../../node_modules"
     ],
     "types": [
-
-      "angularfire2",
       "core-js",
       "express",
       "jasmine",
       "node",
       "protractor",
-      "systemjs"
+      "systemjs",
+      "angularfire2"
     ]
   },
   "exclude": [

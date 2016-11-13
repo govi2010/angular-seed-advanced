@@ -12,7 +12,8 @@ export = () => {
     'node_modules/ng2-translate/**/*',
     'node_modules/@ngrx/**/*',
     'node_modules/firebase/**/*',
-    'node_modules/rxjs/**/*'
+    'node_modules/rxjs/**/*',
+    'node_modules/angularfire2/**/*'
   ];
 
   src.push(...Config.NPM_DEPENDENCIES.map(x => relative(Config.PROJECT_ROOT, x.src)));

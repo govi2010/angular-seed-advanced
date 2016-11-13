@@ -20,9 +20,17 @@ import { ENTRY_COMPONENTS } from './app/frameworks/obek/components/index';
 import { routes } from './app/frameworks/obek/routes';
 import { ObekModule } from './app/frameworks/obek/obek.module';
 
+var myFirebaseConfig = {
+  apiKey: "AIzaSyAgOpK4KRNQdd6rSI_bVqoTJZ4yORCPVZo",
+  authDomain: "obek-tech.firebaseapp.com",
+  databaseURL: "https://obek-tech.firebaseio.com",
+  storageBucket: "obek-tech.appspot.com",
+  messagingSenderId: "760379315885"
+};
 
 // config
 import { Config, WindowService, ConsoleService } from './app/frameworks/core/index';
+import {AngularFireModule} from "angularfire2";
 Config.PLATFORM_TARGET = Config.PLATFORMS.WEB;
 if (String('<%= BUILD_TYPE %>') === 'dev') {
   // only output console logging in dev mode
@@ -55,6 +63,7 @@ export function cons() {
       { provide: WindowService, useFactory: (win) },
       { provide: ConsoleService, useFactory: (cons) }
     ]),
+    AngularFireModule.initializeApp(myFirebaseConfig),
     ObekModule.forRoot(TOKENS_WEB),
     routerModule
   ],

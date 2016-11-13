@@ -59,6 +59,9 @@ module.exports = function (config) {
       // suppress annoying 404 warnings for resources, images, etc.
       { pattern: 'dist/dev/assets/**/*', watched: false, included: false, served: true },
 
+      { pattern: 'node_modules/firebase/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/angularfire2/bundles/angularfire2.umd.js', included: false, watched: false },
+
       'test-config.js',
       'dist/dev/system-config.js',
       'test-main.js'

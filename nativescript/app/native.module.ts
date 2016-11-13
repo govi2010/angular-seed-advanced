@@ -79,16 +79,8 @@ export function cons() {
     AnalyticsModule,
     ComponentsModule,
     ObekModule.forRoot([
-      TOKENS_NATIVE/*,
-       {
-       provide: TNSFontIconService,
-       useFactory: () => {
-       return new TNSFontIconService({
-       'fa': 'fonts/font-awesome.css',
-       'ion': 'fonts/ionicons.css'
-       });
-       }
-       }*/
+      TOKENS_NATIVE,
+      {}
     ]),
     NativeScriptRouterModule.forRoot(<any>routes),
   ],

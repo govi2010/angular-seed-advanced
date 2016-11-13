@@ -33,21 +33,27 @@ export class ProjectConfig extends SeedAdvancedConfig {
     /* Add to or override NPM module configurations: */
     // this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });
 
-    this.SYSTEM_CONFIG_DEV.paths['firebase'] =
-      `${this.APP_BASE}node_modules/firebase/firebase`;
 
-    this.SYSTEM_BUILDER_CONFIG.packages['firebase'] = {
-      main: 'firebase.js',
-      defaultExtension : 'js'
-    };
 
-    this.SYSTEM_CONFIG_DEV.paths['angularfire2'] =
-      `${this.APP_BASE}node_modules/angularfire2/bundles/angularFire2.umd.js`;
 
-    this.SYSTEM_BUILDER_CONFIG.packages['angularfire2'] = {
-      main: 'angularfire2.js',
-      defaultExtension : 'js'
-    };
+    this.addPackageBundles({
+      name: 'firebase',
+      path: 'node_modules/firebase/firebase.js',
+      packageMeta: {
+        main: 'firebase.js',
+        defaultExtension: 'js'
+      }
+    });
+
+    // Add AngularFire configuration to SystemJS
+    this.addPackageBundles({
+      name: 'angularfire2',
+      path: 'node_modules/angularfire2/bundles/angularfire2.umd.js',
+      packageMeta: {
+        main: 'angularfire2.js',
+        defaultExtension: 'js'
+      }
+    });
   }
 
 }

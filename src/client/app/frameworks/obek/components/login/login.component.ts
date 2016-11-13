@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
 
     this.userService.login(this.user)
       .then((data) => {
-
+        debugger;
         this.logger.debug(JSON.stringify(data));
         if(typeof data ==="string")
         {
@@ -68,9 +68,9 @@ export class LoginComponent implements OnInit {
         this.logger.debug(typeof data);
         this.isAuthenticating = false;
         this.logger.debug(data.email);
-
+        debugger;
         this.logger.debug(data.hasOwnProperty("email"));
-        if(data.hasOwnProperty("email")){
+        if(data.hasOwnProperty("uid")){
           this._router.navigate(["/home"]);
         }
         else {
