@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>760379315885-o30kkqr0iqmnviqsadhto0bh9o8o0uee.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.760379315885-o30kkqr0iqmnviqsadhto0bh9o8o0uee</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDwSx0OIOdxRj5MhYWVtQMqrl6G4MhxTNM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>760379315885</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.obek.client</string>
+	<key>PROJECT_ID</key>
+	<string>obek-tech</string>
+	<key>STORAGE_BUCKET</key>
+	<string>obek-tech.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:760379315885:ios:3d0f34d3a406fc1d</string>
+	<key>DATABASE_URL</key>
+	<string>https://obek-tech.firebaseio.com</string>
+</dict>
+</plist>
