@@ -1,5 +1,7 @@
 import {FIREBASE, TIMER, ENUMS, DIALOGS, APPSETTINGS,
   LOADER, FRAME, PAGE, LISTPICKER} from './app/frameworks/core/tokens';
+
+
 var firebase = require("nativescript-plugin-firebase");
 import * as enums from 'ui/enums';
 import * as dialogs from 'ui/dialogs';
@@ -8,6 +10,7 @@ import * as page from 'ui/page';
 import * as appSettings from 'application-settings';
 import * as listPicker from 'ui/list-picker';
 import * as timer from 'timer';
+
 
 
 import { LoadingIndicator } from 'nativescript-loading-indicator';

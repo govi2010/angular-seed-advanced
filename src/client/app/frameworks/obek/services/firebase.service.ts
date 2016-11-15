@@ -1,4 +1,4 @@
-import {Injectable, Inject, NgZone} from '@angular/core';
+import {Injectable, Inject, NgZone, Injector} from '@angular/core';
 import {LogService} from '../../core/services/log.service';
 import {Config} from '../../core/utils/config';
 import {FIREBASE, LOADER} from '../../core/tokens';
@@ -7,7 +7,6 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/share';
 import {UserModel} from '../models/user.model';
 import {Router} from "@angular/router";
-import {AngularFire, AuthProviders, AuthMethods, FirebaseAuthState} from "angularfire2";
 
 
 declare var zonedCallback: Function;
@@ -22,7 +21,7 @@ export class FirebaseService {
   private _database: any;
 
 
-  constructor(private webFirebase: AngularFire,
+  constructor(private injector: Injector,
               private logger: LogService,
               private ngZone: NgZone,
               @Inject(FIREBASE) private firebase: any,
@@ -31,27 +30,30 @@ export class FirebaseService {
 
     logger.debug(`FireBaseService initializing...`);
 
-
     if (Config.IS_MOBILE_NATIVE()) {
       firebase.init({
         persist: true,
         storageBucket: 'gs://obek-tech.appspot.com',
-        iOSEmulatorFlush: true,
         onAuthStateChanged: (data: any) => {
           this.logger.debug(`Logged ${data.loggedIn ? 'into' : 'out of'} firebase.`);
+          if(data.loggedIn)
+          {
+            this.router.navigate(['/home'])
+          }else{
+            this.router.navigate(['/'])
+          }
+
         }
       }).then(() => {
         this.logger.debug('firebase.init done');
       }, (error: any) => {
         this.logger.debug('firebase.init error: ' + error);
       });
-
     } else {
 
-
-
-      firebase = webFirebase;
-      debugger;
+      // debugger;
+      // firebase =  injector.get(firebase);
+      // debugger;
       this._database = firebase.database;
       this._auth = firebase.auth;
 
@@ -79,9 +81,9 @@ export class FirebaseService {
     else {
       return this._auth.login(
         {email: user.email, password: user.password}, {
-        provider: AuthProviders.Password,
-        method: AuthMethods.Password
-      }).then(function (result: any) {
+          provider: 4,
+          method: 3
+        }).then(function (result: any) {
         return result;
       }, function (error: any) {
         return error;
@@ -126,37 +128,54 @@ export class FirebaseService {
 
   public logout() {
     Config.token = "";
-    this._auth.logout();
+    if (Config.IS_MOBILE_NATIVE()) {
+      this.firebase.logout();
+    }else{
+      this._auth.logout();
+    }
+
   }
 
   public loginauthguard() {
 
-    return this._auth
-      .take(1)
-      .map((authState: FirebaseAuthState) => !authState)
-      .do(notAuthenticated => {
-        if (!notAuthenticated) {
-          console.log("loggedin");
-          this.router.navigate(['/home'])
-        }
-        return null;
-      });
+    if (Config.IS_MOBILE_NATIVE()) {
+      //console.log(this.firebase);
+      return true;
+    } else {
+      return this._auth
+        .take(1)
+        .map((authState: any) => !authState)
+        .do(notAuthenticated => {
+          if (!notAuthenticated) {
+            console.log("loggedin");
+            this.router.navigate(['/home'])
+          }
+          return null;
+        });
+    }
 
   }
 
 
   public authguard() {
 
+    if (Config.IS_MOBILE_NATIVE()) {
+      //console.log(this.firebase);
+      return true;
 
-    return this._auth
-      .take(1)
-      .map((authState: FirebaseAuthState) => !!authState)
-      .do(authenticated => {
-        console.log("generatl :"+authenticated);
-        if (!authenticated) {
-          this.router.navigate(['/'])
-        }
-      });
+    }
+    else {
+      return this._auth
+        .take(1)
+        .map((authState: any) => !!authState)
+        .do(authenticated => {
+          console.log("generatl :" + authenticated);
+          if (!authenticated) {
+            this.router.navigate(['/'])
+          }
+        });
+    }
+
 
   }
 }

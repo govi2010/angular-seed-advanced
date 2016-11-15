@@ -79,8 +79,7 @@ export function cons() {
     AnalyticsModule,
     ComponentsModule,
     ObekModule.forRoot([
-      TOKENS_NATIVE,
-      {}
+      TOKENS_NATIVE
     ]),
     NativeScriptRouterModule.forRoot(<any>routes),
   ],

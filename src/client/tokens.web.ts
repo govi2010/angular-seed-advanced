@@ -4,9 +4,7 @@ import {AngularFire} from 'angularfire2';
 
 export const TOKENS_WEB: Array<any> = [
   {
-    provide: FIREBASE, useFactory: () => {
-      return  null
-    }
+    provide: FIREBASE, useClass:AngularFire
   },
   { provide: ENUMS, useValue: {} },
   { provide: APPSETTINGS, useValue: {} }
