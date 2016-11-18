@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
               private _router: Router,
               @Inject(FRAME) private frame: any,
               @Inject(DIALOGS) private dialogs: any) {
+
   }
 
   ngOnInit() {
@@ -40,6 +41,7 @@ export class HomeComponent implements OnInit {
         this.frame.topmost().ios.controller.visibleViewController.navigationItem.setHidesBackButtonAnimated(true, false);
       }
     }
+   // this.logout();
   }
 
   isOpen = false;

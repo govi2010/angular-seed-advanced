@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
-input {
+.login-page input {
   display: block;
   width: 100%;
 }
-img[src*=gif] {
+.login-page img[src*=gif] {
   height: 50px;
 }
 
 
 /* Box Model */
 
-*, *:before, *:after {
+.login-page *, .login-page *:before, .login-page *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -19,98 +19,98 @@ img[src*=gif] {
 
 /* Basic */
 
-html {
-  height: 100%;
-}
-body {
-  height: 100%;
-  margin: 0;
-  background-color: #ccc;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+/*html {*/
+  /*height: 100%;*/
+/*}*/
+/*body {*/
+  /*height: 100%;*/
+  /*margin: 0;*/
+  /*background-color: #ccc;*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+/*}*/
 
 /* Type */
 
-body, input, select, textarea {
+.login-page  input,.login-page  select,.login-page  textarea {
   color: #414f57;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
   line-height: 2;
   letter-spacing: 0.2em;
 }
-input {
+.login-page input {
   font-size: 16px;
   border: solid 1px #c8cccf;
   border-radius: 4px;
 }
 
-a {
+.login-page a {
   color: blue;
 }
 
-strong, b {
+.login-page strong,.login-page  b {
   color: #313f47;
 }
 
-em, i {
+.login-page em, .login-page i {
   font-style: italic;
 }
 
-p {
+.login-page p {
   margin: 0 0 1.5em 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.login-page h1, .login-page h2, .login-page h3, .login-page h4, .login-page h5,.login-page  h6 {
   color: #313f47;
   line-height: 1.5;
   margin: 0 0 0.75em 0;
   text-align: center;
 }
 
-h1 {
+.login-page h1 {
   font-size: 1.85em;
   letter-spacing: 0.22em;
   margin: 0 0 0.525em 0;
 }
 
 @media screen and (max-width: 480px) {
-  h1 {
+  .login-page  h1 {
     font-size: 1.65em;
   }
 }
 
 /* Form */
 
-.center {
+.login-page .center {
   padding-top: 1em;
   text-align: center;
 }
-label {
+.login-page label {
   color: #313f47;
   display: block;
   font-weight: bold;
   margin: 0 0 0.75em 0;
 }
 
-input, select, textarea {
+.login-page input,.login-page  select,.login-page  textarea {
   padding: 0.3em 0.5em;
 }
 
 /* List */
-ul {
+.login-page ul {
   list-style: none;
   margin: 0 0 1.5em 0;
   padding-left: 1em;
 }
 
-ul li {
+.login-page ul li {
   padding-top: 1.5em;
 }
 
 /* Button */
 
-button {
+.login-page button {
   transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
   display: inline-block;
   height: 2.75em;
@@ -125,25 +125,25 @@ button {
   color: #FFF;
   cursor: pointer;
 }
-button.plain {
+.login-page  button.plain {
   background-color: gray;
 }
 
-button.big {
+.login-page  button.big {
   font-size: 1.35em;
 }
-button.secondary {
+.login-page button.secondary {
   background-color: #1FBDDA;
   font-weight: normal;
 }
 
-.link {
+.login-page  .link {
   text-decoration: underline;
   margin: 1em;
   cursor: hand;
 }
 
-input:disabled, button:disabled {
+.login-page input:disabled, .login-page button:disabled {
   -moz-pointer-events: none;
   -webkit-pointer-events: none;
   -ms-pointer-events: none;
@@ -171,20 +171,20 @@ input:disabled, button:disabled {
   color: black;
 }
 
-.avatar {
+.login-page .avatar {
   position: relative;
   display: block;
   margin-bottom: 1.5em;
 }
 
-.avatar img {
+.login-page .avatar img {
   display: block;
   margin: 0 auto;
   border-radius: 100%;
   box-shadow: 0 0 0 .1em #ffffff;
 }
 
-.avatar:before {
+.login-page .avatar:before {
   content: '';
   display: block;
   position: absolute;
@@ -203,12 +203,12 @@ input:disabled, button:disabled {
     padding-right: 1em;
   }
 
-  .avatar:before {
+  .login-page .avatar:before {
     left: -2em;
     width: calc(100% + 4em);
   }
 }
 
-.hidden {
+.login-page .hidden {
   display: none !important;
 }
