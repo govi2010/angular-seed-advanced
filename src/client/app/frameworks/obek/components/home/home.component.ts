@@ -64,6 +64,12 @@ export class HomeComponent implements OnInit {
 
 
   }
-
+  foldFunction(event,ele){
+    if(event){
+      ele.isFolded = true;
+    }else{
+      ele.isFolded = false;
+    }
+  }
 
 }

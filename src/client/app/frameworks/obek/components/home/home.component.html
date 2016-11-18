@@ -1,4 +1,3 @@
-<!--blank-->
-
-<h1>Hey you are logged in </h1>
-<button (click)="logout()" > Logout Here </button>
+<app-sidebar id="aside" class="app-aside modal fade nav-dropdown" [ngClass]="{'folded':sidebar.isFolded}" #sidebar></app-sidebar>
+<app-main #main   id="content" class="app-content white bg box-shadow-z2" role="main"></app-main>
+<app-setting id="switcher" (foldSidebar)="foldFunction($event,sidebar)"></app-setting>

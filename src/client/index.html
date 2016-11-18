@@ -8,6 +8,27 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="shortcut icon" sizes="196x196" href="assets/images/logo.png">
+
+  <!-- style -->
+  <link rel="stylesheet" href="assets/css/animate.css/animate.min.css" type="text/css"/>
+  <link rel="stylesheet" href="assets/css/glyphicons/glyphicons.css" type="text/css"/>
+  <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css" type="text/css"/>
+  <link rel="stylesheet" href="assets/css/material-design-icons/material-design-icons.css" type="text/css"/>
+  <link rel="stylesheet" href="assets/css/bootstrap/dist/css/bootstrap.min.css" type="text/css"/>
+
+  <!-- build:css css/styles/app.min.css -->
+  <link rel="stylesheet" href="assets/css/styles/app.css" type="text/css"/>
+  <link rel="stylesheet" href="assets/css/styles/style.css" type="text/css"/>
+  <link rel="stylesheet" href="assets/css/styles/font.css" type="text/css"/>
+
+  <link rel="stylesheet" href="assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" type="text/css"/>
+  <link rel="stylesheet" href="assets/libs/owl.carousel/dist/assets/owl.theme.css" type="text/css"/>
+  <link rel="stylesheet" href="assets/libs/mediaelement/build/mediaelementplayer.min.css" type="text/css"/>
+  <link rel="stylesheet" href="assets/libs/mediaelement/build/mep.css" type="text/css"/>
+
+  <!-- endbuild -->
+
   <!-- inject:css -->
   <!-- endinject -->
 
@@ -19,53 +40,110 @@
   <% if (BUILD_TYPE === 'prod') { %>
   <!-- segment.io -->
   <script type="text/javascript">
-  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+    !function () {
+      var analytics = window.analytics = window.analytics || [];
+      if (!analytics.initialize)if (analytics.invoked)window.console && console.error && console.error("Segment snippet included twice."); else {
+        analytics.invoked = !0;
+        analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "page", "once", "off", "on"];
+        analytics.factory = function (t) {
+          return function () {
+            var e = Array.prototype.slice.call(arguments);
+            e.unshift(t);
+            analytics.push(e);
+            return analytics
+          }
+        };
+        for (var t = 0; t < analytics.methods.length; t++) {
+          var e = analytics.methods[t];
+          analytics[e] = analytics.factory(e)
+        }
+        analytics.load = function (t) {
+          var e = document.createElement("script");
+          e.type = "text/javascript";
+          e.async = !0;
+          e.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.segment.com/analytics.js/v1/" + t + "/analytics.min.js";
+          var n = document.getElementsByTagName("script")[0];
+          n.parentNode.insertBefore(e, n)
+        };
+        analytics.SNIPPET_VERSION = "3.1.0";
 
-  // REPLACE with your Segment.io write_key
-  analytics.load("XVDaTIQYy5g0akx5iTJmPozLKWFLkX6y");
-  analytics.page()
-  }}();
+        // REPLACE with your Segment.io write_key
+        analytics.load("XVDaTIQYy5g0akx5iTJmPozLKWFLkX6y");
+        analytics.page()
+      }
+    }();
   </script>
   <% } %>
 
 </head>
 <body>
+<sd-app class="app dk" id="app">Loading...</sd-app>
 
-  <sd-app>Loading...</sd-app>
-
-  <script>
+<script>
   // Fixes undefined module function in SystemJS bundle
-  function module() {}
-  </script>
+  function module() {
+  }
+</script>
 
-  <% if (!TARGET_DESKTOP) { %>
-  <!-- shims:js -->
-  <!-- endinject -->
-  <% } %>
+<% if (!TARGET_DESKTOP) { %>
+<!-- shims:js -->
+<!-- endinject -->
+<% } %>
 
-  <% if (BUILD_TYPE === 'dev') { %>
-  <script src="<%= APP_BASE %>system-config.js"></script>
-  <% } %>
+<% if (BUILD_TYPE === 'dev') { %>
+<script src="<%= APP_BASE %>system-config.js"></script>
+<% } %>
 
-  <!-- libs:js -->
-  <!-- endinject -->
+<!-- libs:js -->
+<!-- endinject -->
 
-  <!-- inject:js -->
-  <!-- endinject -->
+<!-- inject:js -->
+<!-- endinject -->
 
-  <% if (BUILD_TYPE === 'dev') { %>
-  <script>
+<% if (BUILD_TYPE === 'dev') { %>
+<script>
   System.import('<%= BOOTSTRAP_MODULE %>')
     .catch(function (e) {
       console.error(e,
         'Report this error at https://github.com/NathanWalker/angular-seed-advanced/issues');
     });
-  </script>
-  <% } %>
+</script>
+<% } %>
 
-  <% if (TARGET_DESKTOP && BUILD_TYPE !== 'prod') { %>
-  <script>require('electron-connect').client.create()</script>
-  <% } %>
+<% if (TARGET_DESKTOP && BUILD_TYPE !== 'prod') { %>
+<script>require('electron-connect').client.create()</script>
+<% } %>
+
+<!-- jQuery -->
+<script src="assets/libs/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+<script src="assets/libs/tether/dist/js/tether.min.js"></script>
+<script src="assets/libs/bootstrap/dist/js/bootstrap.js"></script>
+<!-- core -->
+<script src="assets/libs/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+<script src="assets/libs/jquery.stellar/jquery.stellar.min.js"></script>
+<script src="assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+<script src="assets/libs/jscroll/jquery.jscroll.min.js"></script>
+<script src="assets/libs/jquery-pjax/jquery.pjax.js"></script>
+
+<script src="assets/libs/mediaelement/build/mediaelement-and-player.min.js"></script>
+<script src="assets/libs/mediaelement/build/mep.js"></script>
+<script src="assets/scripts/player.js"></script>
+
+<script src="assets/scripts/config.lazyload.js"></script>
+<script src="assets/scripts/ui-load.js"></script>
+<script src="assets/scripts/ui-jp.js"></script>
+<script src="assets/scripts/ui-include.js"></script>
+<script src="assets/scripts/ui-device.js"></script>
+<script src="assets/scripts/ui-form.js"></script>
+<script src="assets/scripts/ui-nav.js"></script>
+<script src="assets/libs/screenfull/dist/screenfull.min.js"></script>
+<script src="assets/scripts/ui-scroll-to.js"></script>
+<script src="assets/scripts/ui-toggle-class.js"></script>
+<script src="assets/scripts/ui-taburl.js"></script>
+<script src="assets/scripts/app.js"></script>
+<script src="assets/scripts/site.js"></script>
+<script src="assets/scripts/ajax.js"></script>
 
 </body>
 </html>

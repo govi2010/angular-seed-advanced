@@ -1,0 +1,85 @@
+<!-- ############ SWITHCHER START-->
+
+  <div class="switcher white" [ngClass]="{'active':isActive}" id="sw-theme">
+    <a href="#" data-ui-toggle-class="active" (click)="active()" data-ui-target="#sw-theme" class="white sw-btn">
+      <i class="fa fa-gear text-muted"></i>
+    </a>
+    <div class="box-header">
+      <strong>Theme Switcher</strong>
+    </div>
+    <div class="box-divider"></div>
+    <div class="box-body">
+      <p id="settingLayout" class="hidden-md-down">
+        <label class="md-check m-y-xs" data-target="folded">
+          <input type="checkbox" (click)="onFold(fold.checked)" #fold [checked]="isFolded">
+          <i class="green"></i>
+          <span>Folded Aside</span>
+        </label>
+      </p>
+      <p id="settingLayout1" class="hidden-md-down">
+        <label class="m-y-xs pointer" data-ui-fullscreen data-target="fullscreen">
+          <span class="fa fa-expand fa-fw m-r-xs" (click)="onFullScreen()"></span>
+          <span>Fullscreen Mode</span>
+        </label>
+      </p>
+      <p>Colors:</p>
+      <p data-target="color">
+        <label class="radio radio-inline m-a-0 ui-check ui-check-color ui-check-md">
+          <input type="radio" name="color" (click)="onColorChange(colorPrimary.value)" value="primary" #colorPrimary>
+          <i class="primary"></i>
+        </label>
+        <label class="radio radio-inline m-a-0 ui-check ui-check-color ui-check-md">
+          <input type="radio" name="color" (click)="onColorChange(colorAccent.value)" value="accent" #colorAccent>
+          <i class="accent"></i>
+        </label>
+        <label class="radio radio-inline m-a-0 ui-check ui-check-color ui-check-md">
+          <input type="radio" name="color" value="warn" (click)="onColorChange(colorWarn.value)" #colorWarn>
+          <i class="warn"></i>
+        </label>
+        <label class="radio radio-inline m-a-0 ui-check ui-check-color ui-check-md">
+          <input type="radio" name="color" value="success" (click)="onColorChange(colorSucess.value)" #colorSucess>
+          <i class="success"></i>
+        </label>
+        <label class="radio radio-inline m-a-0 ui-check ui-check-color ui-check-md">
+          <input type="radio" name="color" value="info" (click)="onColorChange(colorInfo.value)" #colorInfo>
+          <i class="info"></i>
+        </label>
+        <label class="radio radio-inline m-a-0 ui-check ui-check-color ui-check-md">
+          <input type="radio" name="color" value="blue" (click)="onColorChange(colorBlue.value)" #colorBlue>
+          <i class="blue"></i>
+        </label>
+        <label class="radio radio-inline m-a-0 ui-check ui-check-color ui-check-md">
+          <input type="radio" name="color" value="warning" (click)="onColorChange(colorWarning.value)" #colorWarning>
+          <i class="warning"></i>
+        </label>
+        <label class="radio radio-inline m-a-0 ui-check ui-check-color ui-check-md">
+          <input type="radio" name="color" value="danger" (click)="onColorChange(colorDanger.value)" #colorDanger>
+          <i class="danger"></i>
+        </label>
+      </p>
+      <p>Themes:</p>
+      <div data-target="bg" class="text-u-c text-center _600 clearfix">
+        <label class="p-a col-xs-3 light pointer m-a-0">
+          <input type="radio" name="theme" value="white" hidden (click)="onBackgroundColorChange(bgColor.value)" #bgColor>
+          <i class="active-checked fa fa-check"></i>
+        </label>
+        <label class="p-a col-xs-3 grey pointer m-a-0">
+          <input type="radio" name="theme" value="grey" hidden (click)="onBackgroundColorChange(bgColorGrey.value)"
+                 #bgColorGrey>
+          <i class="active-checked fa fa-check"></i>
+        </label>
+        <label class="p-a col-xs-3 dark pointer m-a-0">
+          <input type="radio" name="theme" value="dark" hidden (click)="onBackgroundColorChange(bgColorDark.value)"
+                 #bgColorDark>
+          <i class="active-checked fa fa-check"></i>
+        </label>
+        <label class="p-a col-xs-3 black pointer m-a-0">
+          <input type="radio" name="theme" value="black" hidden (click)="onBackgroundColorChange(bgColorBlack.value)"
+                 #bgColorBlack>
+          <i class="active-checked fa fa-check"></i>
+        </label>
+      </div>
+    </div>
+  </div>
+
+<!-- ############ SWITHCHER END-->
