@@ -1,7 +1,8 @@
 import {Component, ViewEncapsulation, Input} from "@angular/core";
 import {StorageService} from "../../services/storage.service";
+import {BaseComponent} from '../../../core/decorators/base.component';
 
-@Component({
+@BaseComponent({
   moduleId: module.id,
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -18,3 +19,5 @@ export class SidebarComponent {
     }
   }
 }
+
+

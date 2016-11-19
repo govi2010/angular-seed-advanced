@@ -1,23 +1,5 @@
 <ActionBar title="Obek"></ActionBar>
 
 <StackLayout>
-
-  <GridLayout rows="*,auto,auto">
-
-    <ScrollView>
-      <StackLayout class="card">
-        <StackLayout>
-
-          <StackLayout>
-            <Label class="header" text="Welcome!"></Label>
-            <Label textWrap="true" text="Obek Demo"></Label>
-            <Button text="Logout" class="submit-button white-text" (tap)="logout()"> </Button>
-          </StackLayout>
-
-        </StackLayout>
-      </StackLayout>
-    </ScrollView>
-
-  </GridLayout>
-
+  <app-sidebar></app-sidebar>
 </StackLayout>

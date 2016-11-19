@@ -43,6 +43,7 @@
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
     "tns-core-modules": "^2.3.0",
+    "@types/jquery": "^2.0.34",
     "url": "0.10.3"
   },
   "devDependencies": {

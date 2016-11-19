@@ -7,5 +7,5 @@ export const TOKENS_WEB: Array<any> = [
     provide: FIREBASE, useClass:AngularFire
   },
   { provide: ENUMS, useValue: {} },
-  { provide: APPSETTINGS, useValue: {} }
+  { provide: APPSETTINGS, useValue: localStorage }
 ];
